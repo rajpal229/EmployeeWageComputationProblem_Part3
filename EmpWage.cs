@@ -10,7 +10,7 @@ namespace EmployeWageComputationProblem_Part3
     {
         public void Attendence()
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("Welcome to Employee Wage Computation Program");
             Console.ForegroundColor = ConsoleColor.Gray;
             int empPresent = 1;
@@ -25,16 +25,19 @@ namespace EmployeWageComputationProblem_Part3
                 switch (check)
                 {
                     case 1:
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Employee is Present Full-Time");
                         empHrs = 8;
                         break;
                     case 2:
+                        Console.ForegroundColor = ConsoleColor.Blue;
                         Console.WriteLine("Employee is Present Part-Time");
                             empHrs = 4;
                             break;
                     default:
                             empHrs = 0;
-                            Console.WriteLine("Employee is Absent");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Employee is Absent");
                         break;
                 }
                 totalEmpHrs += empHrs;
@@ -42,6 +45,7 @@ namespace EmployeWageComputationProblem_Part3
                 {
                     dailyWage = empHrs * perHour;
                     monthlyWage += dailyWage;
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("employee daily wage:" + dailyWage);
                 }
                 else
@@ -50,6 +54,7 @@ namespace EmployeWageComputationProblem_Part3
                     break;
                 }
             }
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("Total Working Hours:" + totalEmpHrs);
             Console.WriteLine("monthly employee wage:" + monthlyWage);
 
