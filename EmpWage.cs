@@ -10,29 +10,32 @@ namespace EmployeWageComputationProblem_Part3
     {
         public void Attendence()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Welcome to Employee Wage Computation Program");
+            Console.ForegroundColor = ConsoleColor.Gray;
             int empPresent = 1;
             int empPartTime = 2;
             int perHour = 20;
             int fullTime = 8;
             int partTime = 4;
+            int DailyWage = 0;
             Random random = new Random();
             int check = random.Next(0, 2);
-            if (check == empPresent)
+            switch (check)
             {
-                Console.WriteLine("Employee is Present Full-Time");
-                int DailyWage = perHour * fullTime;
-                Console.WriteLine("Daily wadge : " + DailyWage);
-            }
-            else if (check == empPartTime)
-            {
-                Console.WriteLine("Employee is Present Part-Time");
-                int DailyWage = perHour * partTime;
-                Console.WriteLine("Daily wadge : " + DailyWage);
-            }
-            else
-            {
-                Console.WriteLine("Employee is Absent");
+                case 1:
+                    Console.WriteLine("Employee is Present Full-Time");
+                    DailyWage = perHour * fullTime;
+                    Console.WriteLine("Daily wage : " + DailyWage);
+                    break;
+                case 2:
+                    Console.WriteLine("Employee is Present Part-Time");
+                    DailyWage = perHour * partTime;
+                    break;
+                default:
+                    Console.WriteLine("Daily wage : " + DailyWage);
+                    Console.WriteLine("Employee is Absent");
+                    break;
             }
         }
     }

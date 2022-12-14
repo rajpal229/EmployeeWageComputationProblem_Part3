@@ -6,6 +6,7 @@
         {
             EmpWage attendence= new EmpWage();
             attendence.Attendence();
+
         }
     }
 }
