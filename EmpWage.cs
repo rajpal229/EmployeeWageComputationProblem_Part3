@@ -8,17 +8,15 @@ namespace EmployeWageComputationProblem_Part3
 {
     internal class EmpWage
     {
-        public void Attendence()
+        public void CalculateSalary(string companyName, int perHour, int maxDaysInMonth, int maxWorkinHour)
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("Welcome to Employee Wage Computation Program");
             Console.ForegroundColor = ConsoleColor.Gray;
             int empPresent = 1;
             int empPartTime = 2;
-            int perHour = 20;
-            int maxDaysInMonth = 20;
-            int empHrs = 0, dailyWage = 0, monthlyWage = 0, maxHr = 100, totalEmpHrs = 0 ;
-            for (int days = 1; days <= maxDaysInMonth || totalEmpHrs <=100; days++)
+            int empHrs = 0, dailyWage = 0, monthlyWage = 0, maxHr = 100, totalEmpHrs = 0;
+            for (int days = 1; days <= maxDaysInMonth || totalEmpHrs <= 100; days++)
             {
                 Random random = new Random();
                 int check = random.Next(0, 3);
@@ -32,16 +30,16 @@ namespace EmployeWageComputationProblem_Part3
                     case 2:
                         Console.ForegroundColor = ConsoleColor.Blue;
                         Console.WriteLine("Employee is Present Part-Time");
-                            empHrs = 4;
-                            break;
+                        empHrs = 4;
+                        break;
                     default:
-                            empHrs = 0;
+                        empHrs = 0;
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Employee is Absent");
                         break;
                 }
                 totalEmpHrs += empHrs;
-                if (totalEmpHrs < maxHr)
+                if (totalEmpHrs <= maxHr)
                 {
                     dailyWage = empHrs * perHour;
                     monthlyWage += dailyWage;
@@ -57,7 +55,7 @@ namespace EmployeWageComputationProblem_Part3
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("Total Working Hours:" + totalEmpHrs);
             Console.WriteLine("monthly employee wage:" + monthlyWage);
-
+            Console.WriteLine("Total Employee wage: " + companyName + " " + monthlyWage);
         }
     }
 }
